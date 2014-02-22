@@ -4,9 +4,9 @@ Custom Hint
 Nesnelerin Hint özelliğini nasıl özelleştirebileceğinizi gösteren örnektir.
 
 Öncelikle nesnenin Hint özelliğini özelleştirebilmemiz için **CM_HINTSHOW** mesajını yakalayıp,mesaj içerisinde gelen
-**Message.HintInfo.HintWindowClass** değişkenine özelleştirdiğimiz custom hint(TExHint) sınıfını set etmemiz lazım.
+**Message.HintInfo.HintWindowClass** değişkenine özelleştirdiğimiz **custom hint(TExHint)** sınıfını set etmemiz lazım.
 
-O sebeble bu örnekte olduğu gibi **TButton** sınıfından miras almış **TCustomHintButton** sınıfı içersinde gelen windows mesajını CMHintShow methodu içersinde handle edip,özelleştirdiğimiz custom hint(TExHint) sınıfı set ediyoruz.
+O sebeble bu örnekte olduğu gibi **TButton** sınıfından miras almış **TCustomHintButton** sınıfı içersinde gelen windows mesajını CMHintShow methodu içersinde handle edip,özelleştirdiğimiz **custom hint(TExHint)** sınıfı set ediyoruz.
 
 Fakat butonlar UnitMain içersinde aşağıdaki tanımlamış;
 
@@ -22,7 +22,7 @@ Yukarıdaki tanımı aşağıdaki gibi Hem pas dosyasında hemde dfm dosyasında
     Button2: TButton;
 
 Değişiklikleri hem pas hemde de dfm dosyasında yaptığımızda ise delphi designerı Button1 nesnesini tanımıyor.
-Ama bir şekilde Button1 nesnesinin tipini TCustomHintButton yapmalıyım ki,gelen hint mesajını yakayalayabilsin !
+**Ama bir şekilde Button1 nesnesinin tipini TCustomHintButton yapmalıyım ki,gelen hint mesajını yakayalayabilsin !**
 
 Madem ki tasarım anında Button1 nesnenin tipini değiştiremiyorum !
 O zaman Run-Time değiştiririm amma nasıl ?
