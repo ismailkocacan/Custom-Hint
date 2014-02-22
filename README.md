@@ -34,7 +34,7 @@ PatchInstanceClass methodu ile sadece Button1 instance'ının tipini,TCustomHint
 
 TCustomHintButton sınıfı zaten TButton sınıfından miras aldığı için,TButton sınıfının tüm özelliklerine sahip ve artı olarak birde Custom Hint gösterebiliyor.
 
-**Yani burda öğreneceğiniz bir şey var aslında !!!**
+**Yani burda öğreneceğimiz(hep beraber) bir şey var aslında !!!**
 
 Mevcut bir nesnenin üzerinde herhangi bir düzenleme/değiştirme yapmadan run-time da miras aldırarak yeni özellikler ekleyebilmek kavramı....
 
