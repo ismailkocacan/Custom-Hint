@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Custom-hint by ismailkocacan</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Custom-hint</h1>
+        <p>Nesnelerin Hint özelliğini nasıl özelleştirebileceğinizi gösteren örnektir.</p>
+
+        <p class="view"><a href="https://github.com/ismailkocacan/Custom-Hint">View the Project on GitHub <small>ismailkocacan/Custom-Hint</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/ismailkocacan/Custom-Hint/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/ismailkocacan/Custom-Hint/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/ismailkocacan/Custom-Hint">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="custom-hint" class="anchor" href="#custom-hint"><span class="octicon octicon-link"></span></a>Custom Hint</h1>
+
+<p>Nesnelerin Hint özelliğini nasıl özelleştirebileceğinizi gösteren örnektir.</p>
+
+<p>Öncelikle nesnenin Hint özelliğini özelleştirebilmemiz için <strong>CM_HINTSHOW</strong> mesajını yakalayıp,mesaj içerisinde gelen
+<strong>Message.HintInfo.HintWindowClass</strong> değişkenine özelleştirdiğimiz <strong>custom hint(TExHint)</strong> sınıfını set etmemiz lazım.</p>
+
+<p>O sebeble bu örnekte olduğu gibi <strong>TButton</strong> sınıfından miras almış <strong>TCustomHintButton</strong> sınıfı içersinde gelen windows mesajını CMHintShow methodu içersinde handle edip,özelleştirdiğimiz <strong>custom hint(TExHint)</strong> sınıfı set ediyoruz.</p>
+
+<p>Fakat butonlar UnitMain içersinde aşağıdaki tanımlamış;</p>
+
+<pre><code>TForm1 = class(TForm)
+Button1: TButton;
+Button2: TButton;
+</code></pre>
+
+<p>Yukarıdaki tanımı aşağıdaki gibi Hem pas dosyasında hemde dfm dosyasında ki nesne tanımda değiştirsek büyük ihtimalle sorun çözülecek...</p>
+
+<pre><code>TForm1 = class(TForm)
+Button1: TCustomHintButton;
+Button2: TButton;
+</code></pre>
+
+<p>Değişiklikleri hem pas hemde de dfm dosyasında yaptığımızda ise delphi designerı Button1 nesnesini tanımıyor.
+<strong>Ama bir şekilde Button1 nesnesinin tipini TCustomHintButton yapmalıyım ki,gelen hint mesajını yakayalayabilsin !</strong></p>
+
+<p>Madem ki tasarım anında Button1 nesnenin tipini değiştiremiyorum !
+O zaman Run-Time değiştiririm amma nasıl ?</p>
+
+<p>PatchInstanceClass methodu ile sadece Button1 instance'ının tipini,TCustomHintButton olarak değiştirdiğimde mesajları yakayalabiliyor hale geliyor.</p>
+
+<p><strong>PatchInstanceClass(Button1,TCustomHintButton);</strong> methodu ile "nesnenin" Run-Time'da miras aldığı sınıfı değiştiriliyor.</p>
+
+<p>TCustomHintButton sınıfı zaten TButton sınıfından miras aldığı için,TButton sınıfının tüm özelliklerine sahip ve artı olarak birde Custom Hint gösterebiliyor.</p>
+
+<p><strong>Yani burda öğreneceğimiz(hep beraber) bir şey var aslında !!!</strong></p>
+
+<p>Mevcut bir nesnenin üzerinde herhangi bir düzenleme/değiştirme yapmadan run-time da miras aldırarak yeni özellikler ekleyebilmek kavramı....</p>
+
+<h1>
+<a name="demo-" class="anchor" href="#demo-"><span class="octicon octicon-link"></span></a>Demo </h1>
+
+<p><img src="https://raw.github.com/ismailkocacan/Custom-Hint/Test/buttons.gif" alt="alt tag"></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/ismailkocacan">ismailkocacan</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
