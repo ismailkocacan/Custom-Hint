@@ -4,6 +4,6 @@ Custom Hint
 Nesnelerin Hint özelliğini nasıl özelleştirebileceğinizi gösteren örnektir.
 
 
-Test
+Demo 
 ===========
-![alt tag](https://github.com/ismailkocacan/Custom-Hint/blob/master/Test/buttons.gif)
+![ScreenShot](/Test/buttons.gif)
